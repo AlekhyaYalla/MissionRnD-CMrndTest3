@@ -68,13 +68,20 @@ int isOperator(char *data){
 	else
 		return 0;
 }
-int isOperand(char *data){
-	
-	
+int isOperand(char *data,int n1,int n2){
+	if (*data == 42)
+		return n1 + n2;
+	else if (*data == 43)
+		return n1*n2;
+	else if (*data == 45)
+		return n1 - n2;
+	else if (*data == 47)
+		return n1 / n2;
+
 }
-int getOperand(char *data){
+int getOperand(char *data,int n1,int n2){
 	//converts data string to an integer "123" => 123
-	return 0;
+	
 }
 //Helper Functions end
 int solve_tree(enode *root){
@@ -88,7 +95,7 @@ int solve_tree(enode *root){
 	{
 			n1 = to_left(temp->left);
 			n2 = to_right(temp->right);
-			c=to_operator(temp->data,n1,n2);
+			c=getOperand(temp->data,n1,n2);
 			return c;
 	}
 }
