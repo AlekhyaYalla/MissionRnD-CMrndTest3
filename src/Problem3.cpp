@@ -52,10 +52,10 @@ Difficulty : Medium
 #include <stdio.h>
 
 //data can be accessed using root->data;
-struct enode{
+typedef struct enode{
 	char data[6];
-	struct enode *left;
-	struct enode *right;
+	enode *left;
+	enode *right;
 };
 
 /*
@@ -63,17 +63,33 @@ Helper Functions are optional to write
 */
 //Helper Functions Start
 int isOperator(char *data){
-	return 0;
+	if (*data == 42 || *data == 43 || *data == 45 || *data == 47)
+		return 1;
+	else
+		return 0;
 }
 int isOperand(char *data){
-	return 0;
+	
+	
 }
 int getOperand(char *data){
 	//converts data string to an integer "123" => 123
 	return 0;
 }
 //Helper Functions end
-int solve_tree(struct enode *root){
-    return -1;
+int solve_tree(enode *root){
+    
+	enode *temp;
+	int n1,n2;
+	char c;
+	if (temp == NULL)
+		return -1;
+	else if (isOperator(temp->data))
+	{
+			n1 = to_left(temp->left);
+			n2 = to_right(temp->right);
+			c=to_operator(temp->data,n1,n2);
+			return c;
+	}
 }
 
